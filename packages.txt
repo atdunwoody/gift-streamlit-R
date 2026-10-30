@@ -1,0 +1,4 @@
+r-base-core
+r-cran-dplyr
+r-cran-zoo
+r-cran-jsonlite

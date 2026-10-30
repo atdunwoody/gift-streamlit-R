@@ -1,0 +1,28 @@
+{
+  "source": "User-supplied graph-derived CSVs, authorized as GIFT defaults on 2026-10-26",
+  "units": {
+    "depth": "m",
+    "velocity": "m/s",
+    "substrate": "mm"
+  },
+  "files": {
+    "depth": {
+      "original_filename": "chinook_juvenile_rearing_depth_from_graph(1).csv",
+      "filename": "gift_shiny_default_depth.csv",
+      "sha256": "d3ea0eed7df247ab526b4dcd9c879232bc660edcdb432b4709a8f5249424486b",
+      "rows": 351
+    },
+    "velocity": {
+      "original_filename": "chinook_juvenile_rearing_velocity_from_graph(1).csv",
+      "filename": "gift_shiny_default_velocity.csv",
+      "sha256": "67a9a49569d660678dd172c0f1272e0688f3675d99cb55e4f140bff3e285b2d2",
+      "rows": 351
+    },
+    "substrate": {
+      "original_filename": "chinook_juvenile_rearing_substrate_from_graph(1).csv",
+      "filename": "gift_shiny_default_substrate.csv",
+      "sha256": "553df0009d661f8dd11b36e46e30a092989800dbade04686dcfff6d359793cae",
+      "rows": 72
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "version": 8,
+  "sources": {
+    "esri": {
+      "type": "raster",
+      "tileSize": 256,
+      "tiles": ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
+      "attribution": "Imagery © Esri, Maxar, Earthstar Geographics"
+    }
+  },
+  "layers": [{"id": "imagery", "type": "raster", "source": "esri"}]
+}

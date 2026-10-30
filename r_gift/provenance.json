@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/SGronsdahl/GIFT",
+  "revision": "40c4a74f82d842cd2ab8ab4c53e2b985ac4e0030",
+  "files_sha256": {
+    "AvgHydraulics.R": "2b411a6fb38ac8f977b85f8bed6c4893e443bf6c591efa8f1830116176142cdb",
+    "Habitat.R": "e5cb93ea479e0d2576e8d88972e8afaf0853f4a9e50b486870a56b99b6b74a0e"
+  },
+  "bundled_dependency": {
+    "package": "birk",
+    "version": "2.1.2",
+    "source": "https://github.com/cran/birk/tree/2.1.2",
+    "license": "GPL-3",
+    "sha256": "b3d7c13f43ea5e4bb6e5c519165e9e528b1ff3b15e0a85cd870cfe0888ac630b"
+  }
+}

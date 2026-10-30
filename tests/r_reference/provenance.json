@@ -1,0 +1,8 @@
+{
+  "source_repository": "https://github.com/SGronsdahl/GIFT",
+  "source_revision": "40c4a74f82d842cd2ab8ab4c53e2b985ac4e0030",
+  "R_version": "R version 4.2.2 Patched (2022-11-10 r83330)",
+  "dplyr_version": "1.0.10",
+  "zoo_version": "1.8.11",
+  "birk_version": "2.1.2"
+}

@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+.pytest_cache
+.git
+.streamlit/secrets.toml
+exports
+data/hydraulics
+data/r_build_cache

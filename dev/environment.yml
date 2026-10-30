@@ -1,0 +1,19 @@
+# Local Conda setup. Cloud deployments use the root requirements.txt.
+name: gift_streamlit
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - r-base>=4.2
+  - r-dplyr
+  - r-zoo
+  - r-jsonlite
+  - pip
+  - pip:
+      - streamlit==1.66.1
+      - numpy==2.3.5
+      - pandas==2.2.3
+      - plotly==6.9.0
+      - pydeck==0.9.3
+      - shapely==2.2.0
+      - pyproj==3.8.0

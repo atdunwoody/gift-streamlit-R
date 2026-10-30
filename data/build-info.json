@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 4,
+  "title": "GIFT Habitat Explorer",
+  "configuration": {
+    "network_path": "inputs/UGR_channel_geometry_predictions_monthly_EROM.gpkg",
+    "network_layer": "channel_geometry_predictions",
+    "max_depth_path": "inputs/UGR_channel_geometry_predictions_monthly_EROM.gpkg",
+    "max_depth_layer": "channel_geometry_predictions",
+    "priority_path": "inputs/Provisional_Model_Layer.gpkg",
+    "priority_layer": "provisional_model_layer",
+    "curves_directory": "inputs/curves",
+    "output_directory": "data",
+    "network_fields": {
+      "id": "COMID",
+      "name": "GNIS_NAME",
+      "bankfull_width": "bf_width_pred_m",
+      "bankfull_depth": "bf_depth_pred_m",
+      "slope": "SLOPE",
+      "d84": "D84_pred",
+      "drainage_area": "TotDASqKm",
+      "summer_width": "late_summer_wetted_width_pred_m",
+      "width_extrapolated": "bf_width_extrap",
+      "depth_extrapolated": "bf_depth_extrap"
+    },
+    "max_depth_id_field": "COMID",
+    "max_depth_field": "bf_depth_max_pred_m",
+    "priority_id_field": "COMID",
+    "priority_fields": {
+      "score": "High priority combined",
+      "category": "FinalScore_cat"
+    },
+    "temperature_source": "priority",
+    "temperature_field": "currTempScoreKSee",
+    "monthly_flow_fields": {
+      "1": "erom_q_jan_m3s",
+      "2": "erom_q_feb_m3s",
+      "3": "erom_q_mar_m3s",
+      "4": "erom_q_apr_m3s",
+      "5": "erom_q_may_m3s",
+      "6": "erom_q_jun_m3s",
+      "7": "erom_q_jul_m3s",
+      "8": "erom_q_aug_m3s",
+      "9": "erom_q_sep_m3s",
+      "10": "erom_q_oct_m3s",
+      "11": "erom_q_nov_m3s",
+      "12": "erom_q_dec_m3s"
+    },
+    "field_units": {
+      "bankfull_width": "m",
+      "bankfull_depth": "m",
+      "max_depth": "m",
+      "summer_width": "m",
+      "slope": "m/m",
+      "d84": "mm",
+      "drainage_area": "km2",
+      "monthly_flow": "m3/s"
+    },
+    "simplify_meters": 8.0,
+    "default_periods": {
+      "chinook_juvenile_rearing": {
+        "start": 7,
+        "end": 9,
+        "source": "https://cfw.nwcouncil.org/Content/FWProgram/ReviewCycle/fy2002bm/workplan/011130Grande.pdf",
+        "note": "Late-summer rearing assessment. Juveniles also rear outside this season; adjust for the study objective."
+      },
+      "chinook_spawning_stream_river": {
+        "start": 8,
+        "end": 9,
+        "source": "https://www.fws.gov/sites/default/files/documents/Upper%20Grande%20Ronde%20SPCH.pdf",
+        "note": "Upper Grande Ronde spring/summer Chinook spawning; does not represent fall Chinook timing."
+      },
+      "steelhead_juvenile_rearing": {
+        "start": 7,
+        "end": 9,
+        "source": "https://cfw.nwcouncil.org/Content/FWProgram/ReviewCycle/fy2002bm/workplan/011130Grande.pdf",
+        "note": "Late-summer rearing assessment. Steelhead juveniles rear across multiple seasons and years."
+      },
+      "steelhead_spawning": {
+        "start": 3,
+        "end": 6,
+        "source": "https://www.fws.gov/sites/default/files/documents/Upper%20Grande%20Ronde%20SPCH.pdf",
+        "note": "Basin spawning window, March into June. Monthly means approximate partial-month endpoints."
+      },
+      "salmonid_general_sensitivity": {
+        "start": 7,
+        "end": 9,
+        "source": "",
+        "note": "Late-summer assessment period, not a calibrated species or life-stage timing window."
+      }
+    }
+  },
+  "inputs": [
+    {
+      "role": "network",
+      "path": "inputs/UGR_channel_geometry_predictions_monthly_EROM.gpkg",
+      "sha256": "5b8cb4796d923f0c9a0cb88e09c861b71d254d9c2e7f524acf6255c041bb3319"
+    },
+    {
+      "role": "max_depth",
+      "path": "inputs/UGR_channel_geometry_predictions_monthly_EROM.gpkg",
+      "sha256": "5b8cb4796d923f0c9a0cb88e09c861b71d254d9c2e7f524acf6255c041bb3319"
+    },
+    {
+      "role": "priority",
+      "path": "inputs/Provisional_Model_Layer.gpkg",
+      "sha256": "229ecce02c0f88980a6501dc61e70aa836749f54c6ee8b3d8a24dbbe6dc33ee1"
+    },
+    {
+      "role": "curve:chinook_juvenile_rearing:depth",
+      "path": "inputs/curves/chinook_juvenile_rearing_depth.csv",
+      "sha256": "d9142eea7e8d498ae0452701d8eed4165535d79088669d130249551faebe8ea4"
+    },
+    {
+      "role": "curve:chinook_juvenile_rearing:velocity",
+      "path": "inputs/curves/chinook_juvenile_rearing_velocity.csv",
+      "sha256": "c29db7b4d51c0bf34a2da5f0f86de51f4ce8ee9f02cb4de169306b42d60d7984"
+    },
+    {
+      "role": "curve:chinook_juvenile_rearing:substrate",
+      "path": "inputs/curves/chinook_juvenile_rearing_substrate.csv",
+      "sha256": "7618e29ee1dc054ab494a22617ba4f376825d5ca5e17e0709aaa53ae4d2816b8"
+    },
+    {
+      "role": "curve:chinook_spawning_stream_river:depth",
+      "path": "inputs/curves/chinook_spawning_stream_river_depth.csv",
+      "sha256": "4650b7cddbfcf4b79cd51b6dc1b51201dc8229d9b9c2d84c6febcb710a3bd1fa"
+    },
+    {
+      "role": "curve:chinook_spawning_stream_river:velocity",
+      "path": "inputs/curves/chinook_spawning_stream_river_velocity.csv",
+      "sha256": "1224b28e59025787df233f326c0e250fd3703f58f5d55cc3c87411cd171d9f41"
+    },
+    {
+      "role": "curve:chinook_spawning_stream_river:substrate",
+      "path": "inputs/curves/chinook_spawning_stream_river_substrate.csv",
+      "sha256": "f0abf65c8060feaf04dbeab23c12792f68b9488436e6cc256918f64cc7cac79b"
+    },
+    {
+      "role": "curve:steelhead_juvenile_rearing:depth",
+      "path": "inputs/curves/steelhead_juvenile_rearing_depth.csv",
+      "sha256": "56d70ea3c5d71a573af6a7c39efec51b13e1d74f857486ea1ef8ed85f6af476d"
+    },
+    {
+      "role": "curve:steelhead_juvenile_rearing:velocity",
+      "path": "inputs/curves/steelhead_juvenile_rearing_velocity.csv",
+      "sha256": "6662c5fdeebd4300571e953f92ea675acc4236edba1430a286f5b5a642a5847a"
+    },
+    {
+      "role": "curve:steelhead_juvenile_rearing:substrate",
+      "path": "inputs/curves/steelhead_juvenile_rearing_substrate.csv",
+      "sha256": "7618e29ee1dc054ab494a22617ba4f376825d5ca5e17e0709aaa53ae4d2816b8"
+    },
+    {
+      "role": "curve:steelhead_spawning:depth",
+      "path": "inputs/curves/steelhead_spawning_depth.csv",
+      "sha256": "84a7b3372fb671dca1776e6b4a9fb5f3f79aa01e0ba14f6a440a03164399d796"
+    },
+    {
+      "role": "curve:steelhead_spawning:velocity",
+      "path": "inputs/curves/steelhead_spawning_velocity.csv",
+      "sha256": "54acb6342e1a6e10510dd36fa3142d4dd09002a57617b532e48f183bb39b845d"
+    },
+    {
+      "role": "curve:steelhead_spawning:substrate",
+      "path": "inputs/curves/steelhead_spawning_substrate.csv",
+      "sha256": "1f8acafea31d31c3b821835abdafcfd40f806f6285804e4e21a368c3effcf6db"
+    },
+    {
+      "role": "curve:salmonid_general_sensitivity:depth",
+      "path": "inputs/curves/salmonid_general_sensitivity_depth.csv",
+      "sha256": "9e2899a2794a5405b2f1a7c11b734984d7ddc4e065e7bab89354ffe488619ecd"
+    },
+    {
+      "role": "curve:salmonid_general_sensitivity:velocity",
+      "path": "inputs/curves/salmonid_general_sensitivity_velocity.csv",
+      "sha256": "655d7aad516b8c27dff894becd963344f45cf67e35547c0e8d1de7090e619718"
+    },
+    {
+      "role": "curve:salmonid_general_sensitivity:substrate",
+      "path": "inputs/curves/salmonid_general_sensitivity_substrate.csv",
+      "sha256": "7705e40bc5a0362588720377f611e4169febfa504baf3ac476b6abd24960069c"
+    }
+  ],
+  "calculationCodeSHA256": {
+    "prepare_data.py": "1bc3fa1d13505b7c62f6c7903303c9abdbd708e7c5811034c95f0ac206fb6114",
+    "tools/prepare_network.py": "88623569b3e3e1ba75b860b2927bef339fd9156428852fbb0691d851f7277730",
+    "r_engine.py": "34b0b2bb791cda3b211d2fed50a80ef9715dbcacf1266bc1c75367a486514800",
+    "r_gift/worker.R": "d342398ab163c88dc4517b8ae9c49a80e726b6a33e037680fd36720753cca7b3",
+    "r_gift/provenance.json": "ff3d136e4ce2dc9fb7204f7e162a0e37d88c598521e5b66f77013b24f0a9e133",
+    "r_gift/upstream/AvgHydraulics.R": "2b411a6fb38ac8f977b85f8bed6c4893e443bf6c591efa8f1830116176142cdb",
+    "r_gift/upstream/Habitat.R": "e5cb93ea479e0d2576e8d88972e8afaf0853f4a9e50b486870a56b99b6b74a0e"
+  },
+  "fingerprint": "1cf95f4c110f9b9123e8cd88e0925138368b344acc0ccdb83fdb37f3fbebb29e",
+  "outputs": {
+    "network.json": "f5f494db013b1fc2566e6dae4770625e287dd19285856e85c78b73eb5f4ada24",
+    "curves.json": "2fe7070f2371b4cc287c9f48cf7e19d2d00a9c0badb26a8d895534015739f002",
+    "curves/chinook_spawning_stream_river_velocity.csv": "1224b28e59025787df233f326c0e250fd3703f58f5d55cc3c87411cd171d9f41",
+    "curves/chinook_juvenile_rearing_velocity.csv": "c29db7b4d51c0bf34a2da5f0f86de51f4ce8ee9f02cb4de169306b42d60d7984",
+    "curves/chinook_spawning_stream_river_depth.csv": "4650b7cddbfcf4b79cd51b6dc1b51201dc8229d9b9c2d84c6febcb710a3bd1fa",
+    "curves/steelhead_juvenile_rearing_substrate.csv": "7618e29ee1dc054ab494a22617ba4f376825d5ca5e17e0709aaa53ae4d2816b8",
+    "curves/chinook_spawning_large_river_substrate.csv": "f0abf65c8060feaf04dbeab23c12792f68b9488436e6cc256918f64cc7cac79b",
+    "curves/chinook_spawning_large_river_velocity.csv": "bea4eec322b9025f9cc8bb0b5328056137608a5d06cbc0c8af33a562c738d18c",
+    "curves/steelhead_spawning_velocity.csv": "54acb6342e1a6e10510dd36fa3142d4dd09002a57617b532e48f183bb39b845d",
+    "curves/steelhead_juvenile_rearing_velocity.csv": "6662c5fdeebd4300571e953f92ea675acc4236edba1430a286f5b5a642a5847a",
+    "curves/salmonid_general_sensitivity_depth.csv": "9e2899a2794a5405b2f1a7c11b734984d7ddc4e065e7bab89354ffe488619ecd",
+    "curves/chinook_spawning_stream_river_substrate.csv": "f0abf65c8060feaf04dbeab23c12792f68b9488436e6cc256918f64cc7cac79b",
+    "curves/steelhead_spawning_substrate.csv": "1f8acafea31d31c3b821835abdafcfd40f806f6285804e4e21a368c3effcf6db",
+    "curves/steelhead_spawning_depth.csv": "84a7b3372fb671dca1776e6b4a9fb5f3f79aa01e0ba14f6a440a03164399d796",
+    "curves/chinook_juvenile_rearing_depth.csv": "d9142eea7e8d498ae0452701d8eed4165535d79088669d130249551faebe8ea4",
+    "curves/salmonid_general_sensitivity_substrate.csv": "7705e40bc5a0362588720377f611e4169febfa504baf3ac476b6abd24960069c",
+    "curves/salmonid_general_sensitivity_velocity.csv": "655d7aad516b8c27dff894becd963344f45cf67e35547c0e8d1de7090e619718",
+    "curves/chinook_juvenile_rearing_substrate.csv": "7618e29ee1dc054ab494a22617ba4f376825d5ca5e17e0709aaa53ae4d2816b8",
+    "curves/chinook_spawning_large_river_depth.csv": "a4dc126ddbac320a66631b98cc0c2f461cee07769d4894596904df698d079c65",
+    "curves/steelhead_juvenile_rearing_depth.csv": "56d70ea3c5d71a573af6a7c39efec51b13e1d74f857486ea1ef8ed85f6af476d",
+    "r_scenarios/champ_castro_jackson.json": "5cdb47a0423285aebe52a33c7f6cbcdb3752556fe51f3f3ce7ab6a223de491e5",
+    "r_scenarios/champ_champ_mean_e5d694c5dbd2960e.json": "4566f771a9586ea7acc01a7c3e6fa1972610867afea4e8f90b1a6111ebbd6786",
+    "r_scenarios/champ_champ.json": "65df4ad912dc50319e8019d9c12bf15a4c0cfed2d3d2bd5272f97b04114cc0de",
+    "r_scenarios/champ_champ.npz": "e3aa84f8353efa3cd7b0d06b985cf9a856a0ae4a9ea070a13e5e02b1500aa272",
+    "r_scenarios/champ_champ_mean_6a0a71b9ef176cbd.json": "f53c93be78f1fb823ee4edf8c4770ff079fc043bfd880a79a57cb239d26431d1",
+    "r_scenarios/champ_castro_jackson_mean_ad7a396d1ba881fb.json": "b9e05c2b653eb0e85b1e81e4b94cc02452ffc65764ecc1cb08d3324e1ad3c4ae",
+    "r_scenarios/champ_champ_mean_e865721768b9c194.json": "b9a11b2069dbab830ba1616d03f995467b3a42954c2fdcd2066b44cad2fa235a",
+    "r_scenarios/champ_castro_jackson_mean_6a0a71b9ef176cbd.json": "8b0934a3731496255f3f198d223c28e6f6f0114edfb44b7327e5d0d681f24387",
+    "r_scenarios/champ_champ_mean_98959cacfe9d1c97.json": "b78a4c443cc7cff65e38d0bd6e7809367f1766b2c9a7e03d137f58cb6fbc481d",
+    "r_scenarios/champ_castro_jackson_mean_e5d694c5dbd2960e.json": "2452d0ad4d86305b50cf878bca8c4012e65eb817bc7fca3b7e0ac5b1c817a460",
+    "r_scenarios/champ_castro_jackson_mean_e865721768b9c194.json": "ecfb934fe23db58130bc11600c25a33808672b2e9318cecc85080b1f93c3f9ba",
+    "r_scenarios/champ_castro_jackson_mean_98959cacfe9d1c97.json": "435016376b2416ab8c7d671fa8c49d3a2d8225ee33fb2e194ce4e308d0d0f3b0",
+    "r_scenarios/champ_champ_mean_5982bf2776f55987.json": "151d05de1f089b61dcfcd701bbdedd4edf4789064c44b77df016510314b5470d",
+    "r_scenarios/champ_castro_jackson_mean_5982bf2776f55987.json": "dbbcc6cf12c3dc57e31a96ec947827ba7f4601e1300fa90be42fc8467f1ca61b",
+    "r_scenarios/champ_champ_mean_ad7a396d1ba881fb.json": "814abe8f721a59c767a3258879919395c78594e4bd63e746857de0cebdbb716f",
+    "r_scenarios/champ_castro_jackson.npz": "baaa7728ca3ecda85048d701c772336efc8fe8b0c9de06b7f1c6b3f863f283b9",
+    "r_scenarios/index.json": "ff30d69809794b44358d50fd47de55c62881337d8cb64d98e9b25cd1c174f8af"
+  },
+  "builtAt": "2026-10-30T17:17:43.240438+00:00",
+  "aggregation": "Median of separately evaluated monthly habitat results.",
+  "requireAllMonthsDefault": true,
+  "calculationRuntime": {
+    "R_version": "R version 4.3.3 (2024-02-29)",
+    "packages": {
+      "jsonlite": "1.8.8",
+      "dplyr": "1.1.4",
+      "zoo": "1.8.12",
+      "birk": "2.1.2"
+    },
+    "engine": "Original R GIFT",
+    "repository": "https://github.com/SGronsdahl/GIFT",
+    "revision": "40c4a74f82d842cd2ab8ab4c53e2b985ac4e0030",
+    "files_sha256": {
+      "AvgHydraulics.R": "2b411a6fb38ac8f977b85f8bed6c4893e443bf6c591efa8f1830116176142cdb",
+      "Habitat.R": "e5cb93ea479e0d2576e8d88972e8afaf0853f4a9e50b486870a56b99b6b74a0e"
+    },
+    "bundled_dependency": {
+      "package": "birk",
+      "version": "2.1.2",
+      "source": "https://github.com/cran/birk/tree/2.1.2",
+      "license": "GPL-3",
+      "sha256": "b3d7c13f43ea5e4bb6e5c519165e9e528b1ff3b15e0a85cd870cfe0888ac630b"
+    }
+  }
+}
